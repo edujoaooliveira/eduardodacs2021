@@ -1,6 +1,5 @@
 package br.univille.eduardodacs2021.controller;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,6 +16,8 @@ public class HomeController {
     
     @GetMapping
     public ModelAndView index(){
+        /*logica muito doida! */
+
         Date dataAgora = new Date();
         SimpleDateFormat sdf 
             = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");

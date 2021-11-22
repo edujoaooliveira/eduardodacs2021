@@ -15,21 +15,24 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity //para gravar os dados da ram para o bd para "salvar"
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
 public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private float valorTotal;
     @Temporal(value = TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data;
     @Column(length = 15)
     private String cupom;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "itemvenda_id")
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
+    @JoinColumn(name = "venda_id")
     private List<ItemVenda> colItemVenda = new ArrayList<ItemVenda>();
-
+    
     public long getId() {
         return id;
     }
@@ -54,6 +57,13 @@ public class Venda {
     public void setCupom(String cupom) {
         this.cupom = cupom;
     }
-    
+    public List<ItemVenda> getColItemVenda() {
+        return colItemVenda;
+    }
+    public void setColItemVenda(List<ItemVenda> colItemVenda) {
+        this.colItemVenda = colItemVenda;
+    }
+
+        
     
 }
