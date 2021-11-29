@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+    <head th:include="layout :: htmlhead"></head>
+    
+    <body>
+        <div class="container">
+            <nav th:replace="layout :: menu">(menu)</nav>
+			<h3>IMPORTADOR DE PRODUTOS</h3>
+
+            <form th:action="@{/import-produto}" th:object="${fornecedor}" method="POST">
+                <select th:field="*{id}">
+                <option th:each="umfornecedor : ${listafornecedor}"
+                        th:text="${umfornecedor.nome}"
+                        th:value="${umfornecedor.id}"></option>
+                
+                </select>
+                <button>Buscar Produtos</button>
+            </form>
+            
+
+        </div>
+        <div th:include="layout :: footer" id="footer">(footer)</div>
+    </body>
+</html> 
