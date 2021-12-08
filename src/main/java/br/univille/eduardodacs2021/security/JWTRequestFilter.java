@@ -1,4 +1,4 @@
-package br.univille.beatrizdacs2021.security;
+package br.univille.eduardodacs2021.security;
 
 import java.io.IOException;
  
@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
  
-import br.univille.beatrizdacs2021.service.impl.MyUserDetailsService;
+import br.univille.eduardodacs2021.service.impl.MyUserDetailsService;
  
 @Component
 public class JWTRequestFilter extends OncePerRequestFilter {
